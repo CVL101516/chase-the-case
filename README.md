@@ -1,5 +1,6 @@
-# murder-mystery
+# chase-the-case
 
-You are a rookie detective for the XYZ PD. Called in to help solve a brutal murder in a local neighborhood. This is your chance to prove your worth.
+You are in the middle of chasing the person who just stole your backpack! They have run into the local hospital. Good luck! 
 
-Yet...upon arrival...a wave of fear washes over you. 
+# Any similarity to actual persons, living or dead, or actual events, is purely coincidental
+# The story, all names, characters, and incidents portrayed in this production are fictitious. No identification with actual persons (living or deceased), places, buildings, and products is intended or should be inferred.
