@@ -5,6 +5,7 @@ int main()
 
     int stage1;
     int talk_to_receptionist;
+    int talk_to_guard;
 
     std::cout << "\n";
     std::cout << "You: Great. They ran into the hospital. One of the busiest buildings that they could have chosen.\n\n";
@@ -36,9 +37,9 @@ int main()
 
                     std::cout << "Why would I ask the receptionist again? They are just going to tell me to ask the security guard...\n";
 
-                    std::cin >> stage1;
-
                     talk_to_receptionist++;
+
+                    std::cin >> stage1;
                 }
             }
         }
@@ -50,14 +51,34 @@ int main()
             std::cout << "You: Thank you so much!\n";
             std::cout << "You: Okay. The guard said right hallway.\n";
 
+            talk_to_guard++;
+
             std::cin >> stage1;
 
-            if (talk_to_receptionist > 0)
+            while (stage1 == 2)
             {
 
-                std::cout << "The guard just told me they saw the thief running down the right hallway. Why would I try to ask the receptionist again?\n";
+                if (stage1 == 2 && talk_to_guard > 0)
+                {
 
-                std::cin >> stage1;
+                    std::cout << "Why would I talk to the guard again? They told me they saw the thief down the right hallway.\n";
+
+                    std::cin >> stage1;
+                }
+                else if (stage1 == 1 && talk_to_receptionist > 0)
+                {
+
+                    std::cout << "The guard just told me they saw the thief running down the right hallway. Why would I try to ask the receptionist again?\n";
+
+                    std::cin >> stage1;
+                }
+                else if (stage1 == 1 && talk_to_receptionist == 0)
+                {
+
+                    std::cout << "There is no point in talking to the receptionist if the thief is down the right hallway.\n";
+
+                    std::cin >> stage1;
+                }
             }
         }
         else if (stage1 == 3)
@@ -77,13 +98,23 @@ int main()
 
             std::cin >> stage1;
 
-            if (talk_to_receptionist > 0)
+            if (stage1 == 1 && talk_to_receptionist > 0)
             {
 
                 std::cout << "Why would I ask the receptionist again? They are just going to tell me to ask the security guard...\n";
 
                 std::cin >> stage1;
             }
+            else if (stage1 == 2 && talk_to_guard > 0)
+            {
+
+                std::cout << "Why would I talk to the guard again? They told me the thief was down the right hallway...\n";
+
+                std::cin >> stage1;
+            }
         }
     }
 }
+
+// Figure out how to stop the loop for option 3 and option 4.
+// Even though the count of talk_to_receptionist and talk_to_guard goes up. still sometimes triggers as if you are talking to them for the very first time.
