@@ -4,8 +4,8 @@ int main()
 {
 
     int stage1;
-    int talk_to_receptionist;
-    int talk_to_guard;
+    int talk_to_receptionist = 0;
+    int talk_to_guard = 0;
 
     std::cout << "\n";
     std::cout << "You: Great. They ran into the hospital. One of the busiest buildings that they could have chosen.\n\n";
@@ -18,101 +18,95 @@ int main()
     std::cout << "4) Run down the right hallway knowing you could be wrong.\n";
     std::cin >> stage1;
 
-    while (stage1 != 3 || 4)
+    while (stage1 == 1 || 2 || 3 || 4)
     {
-        if (stage1 == 1)
+        while (stage1 == 1)
         {
-
-            std::cout << "You rush to the front desk receptionist hoping to get an answer.\n";
-            std::cout << "You: Excuse me! Have you seen someone wearing a black hoodie run in here? They stole my backpack with my laptop and schoolwork.\n";
-            std::cout << "Receptionist: I am really sorry. As you can see, we are absolutely slammed. You could try asking the security guard.\n";
-            std::cout << "You: Okay. They told me to try asking the security guard. Maybe they saw something. Lets try it.\n";
-
-            std::cin >> stage1;
-
-            while (stage1 == 1)
-            {
-                if (stage1 == 1)
-                {
-
-                    std::cout << "Why would I ask the receptionist again? They are just going to tell me to ask the security guard...\n";
-
-                    talk_to_receptionist++;
-
-                    std::cin >> stage1;
-                }
-            }
-        }
-        else if (stage1 == 2)
-        {
-
-            std::cout << "You: Hello Security Guard! My backpack was stolen by somebody in a black hoodie. Did you happen to see where they went?\n";
-            std::cout << "Security Guard: I saw somebody run in here wearing a black hoodie and a backpack. They went down the right hallway.\n";
-            std::cout << "You: Thank you so much!\n";
-            std::cout << "You: Okay. The guard said right hallway.\n";
-
-            talk_to_guard++;
-
-            std::cin >> stage1;
-
-            while (stage1 == 2)
+            if (stage1 == 1 && talk_to_receptionist > 0 && talk_to_guard > 0)
             {
 
-                if (stage1 == 2 && talk_to_guard > 0)
-                {
+                std::cout << "The guard just told me they saw the thief running down the right hallway. Why would I try to ask the receptionist again?\n";
 
-                    std::cout << "Why would I talk to the guard again? They told me they saw the thief down the right hallway.\n";
-
-                    std::cin >> stage1;
-                }
-                else if (stage1 == 1 && talk_to_receptionist > 0)
-                {
-
-                    std::cout << "The guard just told me they saw the thief running down the right hallway. Why would I try to ask the receptionist again?\n";
-
-                    std::cin >> stage1;
-                }
-                else if (stage1 == 1 && talk_to_receptionist == 0)
-                {
-
-                    std::cout << "There is no point in talking to the receptionist if the thief is down the right hallway.\n";
-
-                    std::cin >> stage1;
-                }
+                std::cin >> stage1;
             }
-        }
-        else if (stage1 == 3)
-        {
+            else if (stage1 == 1 && talk_to_receptionist == 0 && talk_to_guard > 0)
+            {
 
-            std::cout << "You: Left hallway it is. Lets hope I am right.\n";
-        }
-        else if (stage1 == 4)
-        {
+                std::cout << "There is no point in talking to the receptionist if the thief is down the right hallway.\n";
 
-            std::cout << "You: Right hallway. 50/50.\n";
-        }
-        else
-        {
+                std::cin >> stage1;
+            }
+            else if (stage1 == 1 && talk_to_receptionist == 0)
+            {
+                talk_to_receptionist++;
+                std::cout << "You rush to the front desk receptionist hoping to get an answer.\n";
+                std::cout << "You: Excuse me! Have you seen someone wearing a black hoodie run in here? They stole my backpack with my laptop and schoolwork.\n";
+                std::cout << "Receptionist: I am really sorry. As you can see, we are absolutely slammed. You could try asking the security guard.\n";
+                std::cout << "You: Okay. They told me to try asking the security guard. Maybe they saw something. Lets try it.\n";
 
-            std::cout << "Come on...I have got to make a choice. Now is not the time for indecision.\n";
-
-            std::cin >> stage1;
-
-            if (stage1 == 1 && talk_to_receptionist > 0)
+                std::cin >> stage1;
+            }
+            else if (stage1 == 1 && talk_to_receptionist > 0)
             {
 
                 std::cout << "Why would I ask the receptionist again? They are just going to tell me to ask the security guard...\n";
 
                 std::cin >> stage1;
             }
+        }
+        while (stage1 == 2)
+        {
+            if (stage1 == 2 && talk_to_guard == 0)
+            {
+
+                talk_to_guard++;
+                std::cout << "You: Hello Security Guard! My backpack was stolen by somebody in a black hoodie. Did you happen to see where they went?\n";
+                std::cout << "Security Guard: I saw somebody run in here wearing a black hoodie and a backpack. They went down the right hallway.\n";
+                std::cout << "You: Thank you so much!\n";
+                std::cout << "You: Okay. The guard said right hallway.\n";
+
+                std::cin >> stage1;
+            }
             else if (stage1 == 2 && talk_to_guard > 0)
             {
 
-                std::cout << "Why would I talk to the guard again? They told me the thief was down the right hallway...\n";
+                std::cout << "Why would I talk to the guard again? They told me they saw the thief down the right hallway.\n";
 
                 std::cin >> stage1;
             }
         }
+        /*   else if (stage1 == 3)
+           {
+
+               std::cout << "You: Left hallway it is. Lets hope I am right.\n";
+           }
+           else if (stage1 == 4)
+           {
+
+               std::cout << "You: Right hallway. 50/50.\n";
+           }
+           else
+           {
+
+               std::cout << "Come on...I have got to make a choice. Now is not the time for indecision.\n";
+
+               std::cin >> stage1;
+
+               if (stage1 == 1 && talk_to_receptionist > 0)
+               {
+
+                   std::cout << "Why would I ask the receptionist again? They are just going to tell me to ask the security guard...\n";
+
+                   std::cin >> stage1;
+               }
+               else if (stage1 == 2 && talk_to_guard > 16)
+               {
+
+                   std::cout << "Why would I talk to the guard again? They told me the thief was down the right hallway...\n";
+
+                   std::cin >> stage1;
+               }
+           } */
     }
 }
 
