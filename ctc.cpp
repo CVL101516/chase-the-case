@@ -1,4 +1,5 @@
 #include <iostream>
+#include "stage1-hallway.h"
 
 int main()
 {
@@ -75,17 +76,27 @@ int main()
                 std::cin >> stage1;
             }
         }
-        /*   else if (stage1 == 3)
-           {
+        while (stage1 == 3)
+        {
 
-               std::cout << "You: Left hallway it is. Lets hope I am right.\n";
-           }
-           else if (stage1 == 4)
-           {
+            Stage1Hallway hallway;
+            hallway.hallwaymethod();
+            
+           /* if (stage1 == 3)
+            {
 
-               std::cout << "You: Right hallway. 50/50.\n";
-           }
-           else
+                std::cout << "You: Left hallway it is. Lets hope I am right.\n";
+            } */
+        }
+        while (stage1 == 4)
+        {
+            if (stage1 == 4)
+            {
+
+                std::cout << "You: Right hallway. 50/50.\n";
+            }
+        }
+        /*   else
            {
 
                std::cout << "Come on...I have got to make a choice. Now is not the time for indecision.\n";
