@@ -1,5 +1,6 @@
 #include <iostream>
-#include "stage1-hallway.h"
+#include "stage1-Left_Hallway.h" // This is the link to stage1_hallways which will have the functions for stage 1 left hallway
+#include "stage1_variables.h" // link to stage1_variables which will have the variables for all stage 1 variables and declarations
 
 int main()
 {
