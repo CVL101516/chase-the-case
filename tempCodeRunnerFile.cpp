@@ -1,1 +1,2 @@
-nd talk_to_guard goes up. still sometimes triggers as if you are talking to them for the very first time.
+
+             } */

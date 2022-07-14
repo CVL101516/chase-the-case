@@ -1,13 +1,10 @@
 #include <iostream>
-#include "stage1-Left_Hallway.h" // This is the link to stage1_hallways which will have the functions for stage 1 left hallway
-#include "stage1_variables.h" // link to stage1_variables which will have the variables for all stage 1 variables and declarations
+#include "stage1_variables.h"
+#include "stage1-Receptionist.h" // This is the link to stage1_hallways which will have the functions for stage 1 left hallway
+#include "stage1-SecurityGuard.h"
 
 int main()
 {
-
-    int stage1;
-    int talk_to_receptionist = 0;
-    int talk_to_guard = 0;
 
     std::cout << "\n";
     std::cout << "You: Great. They ran into the hospital. One of the busiest buildings that they could have chosen.\n\n";
@@ -24,78 +21,19 @@ int main()
     {
         while (stage1 == 1)
         {
-            if (stage1 == 1 && talk_to_receptionist > 0 && talk_to_guard > 0)
-            {
-
-                std::cout << "The guard just told me they saw the thief running down the right hallway. Why would I try to ask the receptionist again?\n";
-
-                std::cin >> stage1;
-            }
-            else if (stage1 == 1 && talk_to_receptionist == 0 && talk_to_guard > 0)
-            {
-
-                std::cout << "There is no point in talking to the receptionist if the thief is down the right hallway.\n";
-
-                std::cin >> stage1;
-            }
-            else if (stage1 == 1 && talk_to_receptionist == 0)
-            {
-                talk_to_receptionist++;
-                std::cout << "You rush to the front desk receptionist hoping to get an answer.\n";
-                std::cout << "You: Excuse me! Have you seen someone wearing a black hoodie run in here? They stole my backpack with my laptop and schoolwork.\n";
-                std::cout << "Receptionist: I am really sorry. As you can see, we are absolutely slammed. You could try asking the security guard.\n";
-                std::cout << "You: Okay. They told me to try asking the security guard. Maybe they saw something. Lets try it.\n";
-
-                std::cin >> stage1;
-            }
-            else if (stage1 == 1 && talk_to_receptionist > 0)
-            {
-
-                std::cout << "Why would I ask the receptionist again? They are just going to tell me to ask the security guard...\n";
-
-                std::cin >> stage1;
-            }
+            receptionistmethod();
         }
         while (stage1 == 2)
         {
-            if (stage1 == 2 && talk_to_guard == 0)
-            {
-
-                talk_to_guard++;
-                std::cout << "You: Hello Security Guard! My backpack was stolen by somebody in a black hoodie. Did you happen to see where they went?\n";
-                std::cout << "Security Guard: I saw somebody run in here wearing a black hoodie and a backpack. They went down the right hallway.\n";
-                std::cout << "You: Thank you so much!\n";
-                std::cout << "You: Okay. The guard said right hallway.\n";
-
-                std::cin >> stage1;
-            }
-            else if (stage1 == 2 && talk_to_guard > 0)
-            {
-
-                std::cout << "Why would I talk to the guard again? They told me they saw the thief down the right hallway.\n";
-
-                std::cin >> stage1;
-            }
+            securityguardmethod();
         }
         while (stage1 == 3)
         {
-
-            Stage1Hallway hallway;
-            hallway.hallwaymethod();
-
-            /* if (stage1 == 3)
-             {
-
-                 std::cout << "You: Left hallway it is. Lets hope I am right.\n";
-             } */
+            lefthallwaymethod();
         }
         while (stage1 == 4)
         {
-            if (stage1 == 4)
-            {
-
-                std::cout << "You: Right hallway. 50/50.\n";
-            }
+            righthallwaymethod();
         }
         /*   else
            {
@@ -124,6 +62,3 @@ int main()
 
 // Figure out how to stop the loop for option 3 and option 4.
 // Even though the count of talk_to_receptionist and talk_to_guard goes up. still sometimes triggers as if you are talking to them for the very first time.
-
-// All variables in stage1_variables. Global. clean.
-// ALl logic inside stage1-hallway.h keeping main function clean
