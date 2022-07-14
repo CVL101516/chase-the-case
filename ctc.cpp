@@ -81,12 +81,12 @@ int main()
 
             Stage1Hallway hallway;
             hallway.hallwaymethod();
-            
-           /* if (stage1 == 3)
-            {
 
-                std::cout << "You: Left hallway it is. Lets hope I am right.\n";
-            } */
+            /* if (stage1 == 3)
+             {
+
+                 std::cout << "You: Left hallway it is. Lets hope I am right.\n";
+             } */
         }
         while (stage1 == 4)
         {
@@ -123,3 +123,6 @@ int main()
 
 // Figure out how to stop the loop for option 3 and option 4.
 // Even though the count of talk_to_receptionist and talk_to_guard goes up. still sometimes triggers as if you are talking to them for the very first time.
+
+// All variables in stage1_variables. Global. clean.
+// ALl logic inside stage1-hallway.h keeping main function clean
