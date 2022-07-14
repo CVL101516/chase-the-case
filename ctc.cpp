@@ -2,6 +2,8 @@
 #include "stage1_variables.h"
 #include "stage1-Receptionist.h" // This is the link to stage1_hallways which will have the functions for stage 1 left hallway
 #include "stage1-SecurityGuard.h"
+#include "stage1-LeftHallway.h"
+#include "stage1-RightHallway.h"
 
 int main()
 {
